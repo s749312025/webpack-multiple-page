@@ -8,5 +8,7 @@
 <body>
     <div id="aa">123123</div>
     <div id="bb">2133</div>
+    <div><%= htmlWebpackPlugin.options.data.testData %></div>
+    <%= require('@/components/test.ejs')({ss: 123}) %>
 </body>
 </html>

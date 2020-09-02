@@ -33,8 +33,29 @@ yarn build
 ```
 
 ### 文件目录
-
 html 文件写在`src/html`目录下，页面js请写在`src/js`对应目录中。
+
+html 使用 `ejs`模板，如果有页面参数数据，请写在对应的`src/data`目录下
+
+ejs文件中 使用 `<div><%= htmlWebpackPlugin.options.data %></div>`来使用数据
+
+例：
+
+`src/data/index.json`中定义数据
+
+```json
+{
+    "testData": "test"
+}
+```
+`src/html/index.ejs`使用数据
+```html
+<div><%= htmlWebpackPlugin.options.data.testData %></div>
+<!-- 会被编译成<div>test</div> -->
+```
+
 static 会整体copy到dist目录下
+
 `src/common`文件夹放公共js文件
+
 `src/style/scss`中 有公共样式，页面样式请在页面js文件中单独`import`scss文件进来。

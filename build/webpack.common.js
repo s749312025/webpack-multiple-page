@@ -91,6 +91,26 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.html$/,
+                use: [{
+                    loader: 'html-loader',
+                    options: {
+                        interpolate: true,
+                        minimize: false
+                    }
+                }]
+            },
+            {
+                test: /\.ejs$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'ejs-loader',
+                    options: {
+                        esModule: false,
+                    }
+                }],
+            },
         ]
     }
 }
