@@ -53,6 +53,7 @@ ejs文件中 使用 `<div><%= htmlWebpackPlugin.options.data %></div>`来使用�
 <div><%= htmlWebpackPlugin.options.data.testData %></div>
 <!-- 会被编译成<div>test</div> -->
 ```
+修改完后最好重启一下用以编译模板
 
 static 会整体copy到dist目录下
 
