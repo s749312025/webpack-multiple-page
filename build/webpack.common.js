@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-const {HTMLPlugins, Entries} = require('../config/directory');
+const {HTMLPlugins, Entries} = require('./directory');
 
 function resolve(dir) {
 	return path.join(__dirname, '..', dir)
@@ -112,5 +112,16 @@ module.exports = {
                 }],
             },
         ]
-    }
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /jquery/,
+                    name: 'jquery',
+                    chunks: 'all'
+                }
+            }
+        }
+    },
 }
