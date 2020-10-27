@@ -36,11 +36,13 @@ HTMLPlugins = htmlAllFileDir.map(item => {
     const chunks = ['jquery', 'common'].concat(hasJs ? [item] : [])
     const data = hasData ? JSON.parse(hasData) : {}
 
+    const commonData = JSON.parse(fs.readFileSync(path.join(__dirname, `../src/data/common.json`), "utf-8"))
+
     return {
         filename: `${item}.html`,
         template: resolve(`src/html/${item}.ejs`),
         chunks: chunks,
-        data,
+        data: {...commonData, ...data},
     }
 })
 
